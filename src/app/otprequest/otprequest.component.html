@@ -1,0 +1,37 @@
+<div class="otp-request-container">
+  <h2>Request OTP</h2>
+
+  <form (ngSubmit)="onSubmit()" #otpForm="ngForm">
+    <div>
+      <label for="email">Email Address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="email"
+        #emailInput="ngModel"
+        required
+        placeholder="Enter your email"
+      />
+      <div *ngIf="emailInput.invalid && emailInput.touched" class="error">
+        Email is required and should be valid.
+      </div>
+    </div>
+
+    <div>
+      <button type="submit" [disabled]="otpForm.invalid">Submit</button>
+    </div>
+
+    <div *ngIf="otpSent" class="confirmation-message">
+      <p>OTP has been sent to your email.</p>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      <p>{{ errorMessage }}</p>
+    </div>
+
+    <div *ngIf="otpSent">
+      <button type="button" (click)="resendOtp()">Resend OTP</button>
+    </div>
+  </form>
+</div>
