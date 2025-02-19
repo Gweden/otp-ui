@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { OtpService } from '../otpservice/otp.service';
@@ -15,13 +15,22 @@ import { OtpService } from '../otpservice/otp.service';
   templateUrl: './otp-verify.component.html',
   styleUrl: './otp-verify.component.scss'
 })
-export class OtpVerifyComponent {
+export class OtpVerifyComponent implements OnInit {
   email: string = '';
   otp: string = '';
   verificationResult: string = '';
   errorMessage: string = '';
 
-  constructor(private readonly otpService:OtpService) {}
+  constructor(
+    private readonly otpService:OtpService,
+    private readonly route:ActivatedRoute
+  ) {}
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.email = params["email"] || "";
+    });
+  }
 
   onVerify() {
     if (this.email && this.otp) {
