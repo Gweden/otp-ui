@@ -1,43 +1,48 @@
 .otp-request-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  
-    h2 {
-      text-align: center;
-    }
-  
-    .error {
-      color: red;
-      font-size: 0.9rem;
-    }
-  
-    .confirmation-message {
-      margin-top: 20px;
-      text-align: center;
-      color: green;
-    }
-  
-    input {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 10px;
-    }
-  
-    button {
-      width: 100%;
-      padding: 10px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-  
-    button:disabled {
-      background-color: #cccccc;
-    }
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+
+  .otp-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
   }
-  
+
+  h2 {
+    text-align: center;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 0.9rem;
+  }
+
+  .confirmation-message {
+    margin-top: 20px;
+    text-align: center;
+    color: green;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+  button:disabled {
+    background-color: #cccccc;
+  }
+}

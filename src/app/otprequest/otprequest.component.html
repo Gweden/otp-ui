@@ -22,16 +22,17 @@
       <button type="submit" [disabled]="otpForm.invalid">Submit</button>
     </div>
 
-    <div *ngIf="otpSent" class="confirmation-message">
+    <div *ngIf="otpSent && !otpError" class="confirmation-message">
       <p>OTP has been sent to your email.</p>
     </div>
 
-    <div *ngIf="errorMessage" class="error-message">
+    <div *ngIf="otpError" class="error-message">
       <p>{{ errorMessage }}</p>
     </div>
 
-    <div *ngIf="otpSent">
+    <div *ngIf="otpSent" class="otp-actions">
       <button type="button" (click)="resendOtp()">Resend OTP</button>
+      <button type="button" (click)="redirectToVerify()">Verify OTP</button>
     </div>
   </form>
 </div>

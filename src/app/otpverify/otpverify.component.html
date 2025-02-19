@@ -1,47 +1,46 @@
 <div class="otp-verify-container">
-    <h2>Verify OTP</h2>
-  
-    <form (ngSubmit)="onVerify()" #verifyForm="ngForm">
-      <div>
-        <label for="email">Email Address</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          [(ngModel)]="email"
-          #emailInput="ngModel"
-          required
-          placeholder="Enter your email"
-        />
+  <h2>Verify OTP</h2>
+
+  <form (ngSubmit)="onVerify()" #verifyForm="ngForm">
+    <div>
+      <label for="email">Email Address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="email"
+        #emailInput="ngModel"
+        required
+        placeholder="Enter your email"
+      />
+    </div>
+
+    <div>
+      <label for="otp">OTP</label>
+      <input
+        type="text"
+        id="otp"
+        name="otp"
+        [(ngModel)]="otp"
+        #otpInput="ngModel"
+        required
+        placeholder="Enter OTP"
+      />
+      <div *ngIf="otpInput.invalid && otpInput.touched" class="error">
+        OTP is required.
       </div>
-  
-      <div>
-        <label for="otp">OTP</label>
-        <input
-          type="text"
-          id="otp"
-          name="otp"
-          [(ngModel)]="otp"
-          #otpInput="ngModel"
-          required
-          placeholder="Enter OTP"
-        />
-        <div *ngIf="otpInput.invalid && otpInput.touched" class="error">
-          OTP is required.
-        </div>
-      </div>
-  
-      <div>
-        <button type="submit" [disabled]="verifyForm.invalid">Verify OTP</button>
-      </div>
-  
-      <div *ngIf="verificationResult" class="result-message">
-        <p>{{ verificationResult }}</p>
-      </div>
-  
-      <div *ngIf="errorMessage" class="error-message">
-        <p>{{ errorMessage }}</p>
-      </div>
-    </form>
-  </div>
-  
+    </div>
+
+    <div>
+      <button type="submit" [disabled]="verifyForm.invalid">Verify OTP</button>
+    </div>
+
+    <div *ngIf="verificationResult" class="result-message">
+      <p>{{ verificationResult }}</p>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      <p>{{ errorMessage }}</p>
+    </div>
+  </form>
+</div>

@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { OtprequestComponent } from './otprequest/otprequest.component';
-import { OtpverifyComponent } from './otpverify/otpverify.component';
+import { OtpRequestComponent } from './otprequest/otprequest.component';
+import { OtpVerifyComponent } from './otpverify/otpverify.component';
 
 export const routes: Routes = [
+    { path: 'otp-request', component: OtpRequestComponent },
+    { path: 'otp-verify', component: OtpVerifyComponent },
     { path: '', redirectTo: '/otp-request', pathMatch: 'full' },
-    { path: 'otp-request', component: OtprequestComponent },
-    { path: 'otp-verify', component: OtpverifyComponent },
 ];
